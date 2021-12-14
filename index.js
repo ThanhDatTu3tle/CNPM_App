@@ -23,13 +23,44 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-// localhost:2703/category
-app.get('/category', (req, res) => {
-    res.render('category/salaryCoefficientTable');
+// localhost:2703/salaryCoefficient
+app.get('/salaryCoefficient', (req, res) => {
+    res.render('category/salaryCoefficient');
 });
 
+// localhost:2703/position
 app.get('/position', (req, res) => {
     res.render('category/position');
+});
+
+// localhost:2703/list
+app.get('/list', (req, res) => {
+    res.render('personnel/list');
+});
+
+// localhost:2703/commonHouse
+app.get('/commonHouse', (req, res) => {
+    res.render('personnel/commonHouse');
+});
+
+// localhost:2703/commonHousePay
+app.get('/commonHousePay', (req, res) => {
+    res.render('personnel/commonHousePay');
+});
+
+// localhost:2703/payroll
+app.get('/payroll', (req, res) => {
+    res.render('department/payroll');
+});
+
+// localhost:2703/workplace
+app.get('/workplace', (req, res) => {
+    res.render('department/workplace');
+});
+
+// localhost:2703/workarrangement
+app.get('/workarrangement', (req, res) => {
+    res.render('department/workarrangement');
 });
 
 // start server at port
