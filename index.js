@@ -18,6 +18,8 @@ app.set('views', './views');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static('public'));
+
 // localhost:2703/
 app.get('/', (req, res) => {
     res.render('index');
@@ -36,6 +38,11 @@ app.get('/position', (req, res) => {
 // localhost:2703/list
 app.get('/list', (req, res) => {
     res.render('personnel/list');
+});
+
+// localhost:2703/create
+app.get('/create', (req, res) => {
+    res.render('personnel/create');
 });
 
 // localhost:2703/commonHouse
@@ -61,6 +68,10 @@ app.get('/workplace', (req, res) => {
 // localhost:2703/workarrangement
 app.get('/workarrangement', (req, res) => {
     res.render('department/workarrangement');
+});
+
+app.post('/create', (req ,res) => {
+    
 });
 
 // start server at port

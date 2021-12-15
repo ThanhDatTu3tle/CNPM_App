@@ -1,3 +1,64 @@
 extends ../layouts/common
 block content 
-    h1 DANH SÁCH
+    .container-sm
+        .row
+            .col
+                | 
+            .col-10.text-center 
+                h2 DANH SÁCH NHÂN VIÊN
+                table.table
+                    thead
+                        tr
+                            th(scope='col') ID
+                            th(scope='col') Full name
+                            th(scope='col') ID Position
+                            th(scope='col') Gender
+                            th(scope='col') Date of birth
+                            th(scope='col') ID Social insurance
+                            th(scope='col') Days off
+                    tbody
+                        tr
+                            th(scope='row') 1
+                            td Nguyen Thanh Dat 
+                            td 19dh111116
+                            td Male
+                            td 27/03/2001
+                            td 0587764127
+                            td 03
+                            td 
+                                button.btn.btn-info(type='button') Details/Fix
+                        tr
+                            th(scope='row') 2
+                            td Nguyen Anh Khoa
+                            td 19dh110742
+                            td Male
+                            td 03/01/2001
+                            td 0587764127
+                            td 03
+                            td 
+                                button.btn.btn-info(type='button') Details/Fix
+                        tr
+                            th(scope='row') 3
+                            td Duong Quoc Anh 
+                            td 19dh111126
+                            td Male
+                            td 27/03/2001
+                            td 0587764127
+                            td 03
+                            td 
+                                button.btn.btn-info(type='button') Details/Fix
+                        tr
+                            th(scope='row') 4
+                            td Nguyen Dang Khoa
+                            td 19dh111140
+                            td Male
+                            td 27/03/2001
+                            td 0587764127
+                            td 03
+                            td 
+                                button.btn.btn-info(type='button') Details/Fix
+
+                button.btn.btn-primary(type='button') Create
+                
+            .col
+                | 
