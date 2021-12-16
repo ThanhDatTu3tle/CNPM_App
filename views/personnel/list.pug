@@ -6,59 +6,46 @@ block content
                 | 
             .col-10.text-center 
                 h2 DANH SÁCH NHÂN VIÊN
-                table.table
-                    thead
-                        tr
-                            th(scope='col') ID
-                            th(scope='col') Full name
-                            th(scope='col') ID Position
-                            th(scope='col') Gender
-                            th(scope='col') Date of birth
-                            th(scope='col') ID Social insurance
-                            th(scope='col') Days off
-                    tbody
-                        tr
-                            th(scope='row') 1
-                            td Nguyen Thanh Dat 
-                            td 19dh111116
-                            td Male
-                            td 27/03/2001
-                            td 0587764127
-                            td 03
-                            td 
-                                button.btn.btn-info(type='button') Details/Fix
-                        tr
-                            th(scope='row') 2
-                            td Nguyen Anh Khoa
-                            td 19dh110742
-                            td Male
-                            td 03/01/2001
-                            td 0587764127
-                            td 03
-                            td 
-                                button.btn.btn-info(type='button') Details/Fix
-                        tr
-                            th(scope='row') 3
-                            td Duong Quoc Anh 
-                            td 19dh111126
-                            td Male
-                            td 27/03/2001
-                            td 0587764127
-                            td 03
-                            td 
-                                button.btn.btn-info(type='button') Details/Fix
-                        tr
-                            th(scope='row') 4
-                            td Nguyen Dang Khoa
-                            td 19dh111140
-                            td Male
-                            td 27/03/2001
-                            td 0587764127
-                            td 03
-                            td 
-                                button.btn.btn-info(type='button') Details/Fix
 
-                button.btn.btn-primary(type='button') Create
+                form.d-flex(action="/list/search", method="GET")
+                    input.form-control.me-2(type='search', placeholder='Search ID Position', aria-label='Search', name='q', value=input)
+                    button.btn.btn-outline-primary Search 
+
+                mixin table-row(user_id, user_name, user_machucvu, user_gioitinh, user_ngaysinh, user_sobhxh, user_songaynghi)
+                    tr
+                        td(data-label="ma_so_nhan_vien") #{user_id}
+                        td.min(data-label="ho_va_ten") #{user_name}
+                        td.min(data-label="ma_chuc_vu") #{user_machucvu}
+                        td.min(data-label="gioi_tinh") #{user_gioitinh}
+                        td.min(data-label="ngay_sinh") #{user_ngaysinh}
+                        td.min(data-label="so_bhxh") #{user_sobhxh}
+                        td.min(data-label="so_ngay_nghi") #{user_songaynghi}
+                            
+                            
+                .container
+                    .event-registration.reset
+                        .content.wide
+                            .row-inset
+                                table.table-default.table-striped.table-bordered.sortable
+                                    thead
+                                        tr
+                                            th Mã số nhân viên
+                                            th Họ và tên
+                                            th Mã chức vụ
+                                            th Giới tính
+                                            th Ngày sinh
+                                            th Số Bảo hiểm xã hội
+                                            th Số ngày nghỉ
+                                    tbody
+                                        +table-row("19dh111116","Nguyễn Thành Đạt","CT01","Nam","27/03/2001","123456789","03")
+                                        +table-row("19dh111126","Dương Quốc Anh","CT01","Nam","27/03/2001","123456789","03")
+                                        +table-row("19dh111136","Nguyễn Anh Khoa","CT01","Nam","27/03/2001","123456789","03")
+                                        +table-row("19dh111146","Nguyễn Đăng Khoa","CT01","Nam","27/03/2001","123456789","03")
+                        
+                    
+
+                button.btn.btn-primary(type='button', onclick='location.assign("/create")') Thêm nhân viên mới
+                    
                 
             .col
                 | 

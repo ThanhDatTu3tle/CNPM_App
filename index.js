@@ -1,7 +1,8 @@
 const express = require('express');
+const pug = require('pug');
 const bodyParser = require('body-parser');
 const low = require('lowdb');
-const FileSync =require('lowdb/adapters/FileSync');
+const FileSync = require('lowdb/adapters/FileSync');
 
 const app = express();
 const adapter = new FileSync('database.json');
@@ -37,12 +38,32 @@ app.get('/position', (req, res) => {
 
 // localhost:2703/list
 app.get('/list', (req, res) => {
-    res.render('personnel/list');
+    res.render('personnel/list', {
+        users: database.get('users').value()
+    });
+});
+
+// localhost:2703/list/search
+app.get('/list/search', (req, res) => {
+    var q = req.query.q;
+    var matchedUser = database.get('users').value().filter((user) => {
+        return user.user_id.indexOf(q) !== -1;
+    });
+
+    res.render('personnel/list', {
+        input: req.query.q,
+        users: matchedUser
+    });
 });
 
 // localhost:2703/create
 app.get('/create', (req, res) => {
     res.render('personnel/create');
+});
+
+app.post('/create', (req, res) => {
+    database.get('users').push(req.body).write();
+    res.redirect('/list');
 });
 
 // localhost:2703/commonHouse
