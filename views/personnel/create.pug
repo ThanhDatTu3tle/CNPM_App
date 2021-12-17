@@ -9,78 +9,79 @@ block content
                 h2 FORM THÊM NHÂN VIÊN
                 span &nbsp 
 
-                form(action="/create", method="POST")
+                form(action="/personnel/create", method="POST")
                     .row
                         .col-8 
                             .input-group.input-group-sm.mb-2
                                 span#inputGroup-sizing-sm.input-group-text Mã nhân viên
-                                input.form-control(type='text', placeholder='Nhập mã nhân viên', name='ID', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                                input.form-control(type='text', placeholder='Nhập mã nhân viên', name='id', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
                             .input-group.input-group-sm.mb-2
                                 span#inputGroup-sizing-sm.input-group-text Họ và tên
-                                input.form-control(type='text', placeholder='Nhập họ và tên nhân viên', name='Họ và tên', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                                input.form-control(type='text', placeholder='Nhập họ và tên nhân viên', name='user_name', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
                             .input-group.input-group-sm.mb-2
                                 span#inputGroup-sizing-sm.input-group-text Nơi sinh
-                                input.form-control(type='text', placeholder='Nhập nơi sinh', name='Nơi sinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                                input.form-control(type='text', placeholder='Nhập nơi sinh', name='user_noisinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
                             .input-group.input-group-sm.mb-2
                                 span#inputGroup-sizing-sm.input-group-text Nguyên quán
-                                input.form-control(type='text', placeholder='Nhập nguyên quán', name='Nguyên quán', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                                input.form-control(type='text', placeholder='Nhập nguyên quán', name='user_nguyenquan', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
                             .input-group.input-group-sm.mb-2
                                 span#inputGroup-sizing-sm.input-group-text Hộ khẩu thường trú
-                                input.form-control(type='text', placeholder='Nhập hộ khẩu thường trú', name='Hộ khẩu thường trú', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                                input.form-control(type='text', placeholder='Nhập hộ khẩu thường trú', name='user_hokhauthuongtru', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
                             .input-group.input-group-sm.mb-2
                                 span#inputGroup-sizing-sm.input-group-text Hộ khẩu tạm trú
-                                input.form-control(type='text', placeholder='Nhập hộ khẩu tạm trú', name='Hộ khẩu tạm trú', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                                input.form-control(type='text', placeholder='Nhập hộ khẩu tạm trú', name='user_hokhautamtru', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
                         .col-4
                             img.rounded.mx-auto.d-block(src='/images/add_photo.jpg', alt='...')
                             span &nbsp 
                     .input-group.input-group-sm.mb-2
                         span#inputGroup-sizing-sm.input-group-text Ngày sinh
-                        input.form-control(type='text', placeholder='Nhập ngày sinh', name='Ngày sinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập ngày sinh', name='user_ngaysinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                         span#inputGroup-sizing-sm.input-group-text Giới tính
-                        input.form-control(type='text', placeholder='Nhập giới tính', name='Giới tính', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập giới tính', name='user_gioitinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                         span#inputGroup-sizing-sm.input-group-text Số thẻ Bảo hiểm xã hội
-                        input.form-control(type='text', placeholder='Nhập số thẻ bảo hiểm xã hội', name='Số thẻ BHXH', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập số thẻ bảo hiểm xã hội', name='user_sobhxh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                     .input-group.input-group-sm.mb-2
                         span#inputGroup-sizing-sm.input-group-text Chứng vụ hiện tại
-                        input.form-control(type='text', placeholder='Nhập chức vụ hiện tại', name='Chức vụ hiện tại', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập chức vụ hiện tại', name='user_chucvuhientai', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                         span#inputGroup-sizing-sm.input-group-text Nơi công tác
-                        input.form-control(type='text', placeholder='Nhập nơi công tác', name='Nơi công tác', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập nơi công tác', name='user_noicongtac', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                     .input-group.input-group-sm.mb-2
                         span#inputGroup-sizing-sm.input-group-text Số Căn cước công dân
-                        input.form-control(type='text', placeholder='Nhập số căn cước công dân', name='Số CCCD', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập số căn cước công dân', name='user_cccd', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                         span#inputGroup-sizing-sm.input-group-text Ngày cấp
-                        input.form-control(type='text', placeholder='Nhập ngày cấp', name='Ngày cấp CCCD', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập ngày cấp', name='user_ngaycapcccd', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                         span#inputGroup-sizing-sm.input-group-text Nơi cấp
-                        input.form-control(type='text', placeholder='Nhập nơi cấp', name='Nơi cấp CCCD', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập nơi cấp', name='user_noicapcccd', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                     .input-group.input-group-sm.mb-2
                         span#inputGroup-sizing-sm.input-group-text Quốc tịch
-                        input.form-control(type='text', placeholder='Nhập quốc tịch', name='Quốc tịch', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập quốc tịch', name='user_quoctich', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
                     .input-group.input-group-sm.mb-2
                         span#inputGroup-sizing-sm.input-group-text Nhà ở tập thể
-                        input.form-control(type='text', placeholder='Nhập nhà ở tập thể', name='Nhà ở tập thể', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập nhà ở tập thể', name='user_nhaotapthe', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                     .input-group.input-group-sm.mb-2
                         span#inputGroup-sizing-sm.input-group-text Ngày vào Đoàn
-                        input.form-control(type='text', placeholder='Nhập ngày vào Đoàn', name='Ngày vào Đoàn', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập ngày vào Đoàn', name='user_ngayvaodoan', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                         span#inputGroup-sizing-sm.input-group-text Ngày vào Đảng
-                        input.form-control(type='text', placeholder='Nhập ngày vào Đảng', name='Ngày vào Đảng', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập ngày vào Đảng', name='user_ngayvaodang', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                     .input-group.input-group-sm.mb-2
                         span#inputGroup-sizing-sm.input-group-text Trình độ học vấn
-                        input.form-control(type='text', placeholder='Nhập trình độ học vấn', name='Trình độ học vấn', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập trình độ học vấn', name='user_trinhdohocvan', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
                         span#inputGroup-sizing-sm.input-group-text Trình độ chuyên môn
-                        input.form-control(type='text', placeholder='Nhập trình độ chuyên môn', name='Trình độ chuyên môn', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        input.form-control(type='text', placeholder='Nhập trình độ chuyên môn', name='user_trinhdochuyenmon', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
-                    button.btn.btn-primary(type='button', onclick='location.assign("/list")') Thêm
+        
+                    button.btn.btn-primary Thêm
             .col
-                | 
+                

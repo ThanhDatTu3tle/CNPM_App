@@ -4,23 +4,39 @@ block content
         .row
             .col
                 | 
-            .col-10.text-center 
+            .col-12.text-center 
                 h2 DANH SÁCH NHÂN VIÊN
 
-                form.d-flex(action="/list/search", method="GET")
-                    input.form-control.me-2(type='search', placeholder='Search ID Position', aria-label='Search', name='q', value=input)
+                form.d-flex(action="/personnel/search", method="GET")
+                    input.form-control.me-2(type='search', placeholder='Tìm kiếm theo mã chức vụ', aria-label='Search', name='q', value=input)
                     button.btn.btn-outline-primary Search 
 
-                mixin table-row(user_id, user_name, user_machucvu, user_gioitinh, user_ngaysinh, user_sobhxh, user_songaynghi)
+                
+                mixin table-row(id, user_name, user_machucvu, user_gioitinh, user_ngaysinh, user_sobhxh, user_songaynghi, user_chitietnhanvien)
                     tr
-                        td(data-label="ma_so_nhan_vien") #{user_id}
+                        td(data-label="ma_so_nhan_vien") #{id}
                         td.min(data-label="ho_va_ten") #{user_name}
                         td.min(data-label="ma_chuc_vu") #{user_machucvu}
                         td.min(data-label="gioi_tinh") #{user_gioitinh}
                         td.min(data-label="ngay_sinh") #{user_ngaysinh}
                         td.min(data-label="so_bhxh") #{user_sobhxh}
                         td.min(data-label="so_ngay_nghi") #{user_songaynghi}
-                            
+                        td.min(data-label="chi_tiet_nhan_vien") #{user_chitietnhanvien}   
+                            a.btn.btn-outline-primary(href='/personnel/' + id) Chi tiết
+
+                //- table.table.table-responsive 
+                //-     thead 
+                //-         tr
+                //-             th Ten
+                //-             th BHXH
+                //-             th gioi tinh 
+                //-     tbody 
+                //-         each user in users 
+                //-             tr      
+                //-                 td=user.user_name 
+                //-                 td=user.user_sobhxh
+                //-                 td=user.user_gioitinh   
+                        
                             
                 .container
                     .event-registration.reset
@@ -29,22 +45,28 @@ block content
                                 table.table-default.table-striped.table-bordered.sortable
                                     thead
                                         tr
-                                            th Mã số nhân viên
-                                            th Họ và tên
-                                            th Mã chức vụ
-                                            th Giới tính
-                                            th Ngày sinh
-                                            th Số Bảo hiểm xã hội
-                                            th Số ngày nghỉ
+                                            th#id(scope='col', name='id') Mã số nhân viên
+                                            th#user_name(scope='col', name='user_name') Họ và tên
+                                            th#user_machucvu(scope='col', name='user_machucvu') Mã chức vụ
+                                            th#user_gioitinh(scope='col', name='user_gioitinh') Giới tính
+                                            th#user_ngaysinh(scope='col', name='user_ngaysinh') Ngày sinh
+                                            th#user_sobhxh(scope='col', name='user_sobhxh') Số Bảo hiểm xã hội
+                                            th#user_songaynghi(scope='col', name='user_songaynghi') Số ngày nghỉ
+                                            th#user_chitietnhanvien(scope='col', name='user_chitietnhanvien') Chi tiết nhân viên
+                                                
+                                                
+
                                     tbody
-                                        +table-row("19dh111116","Nguyễn Thành Đạt","CT01","Nam","27/03/2001","123456789","03")
-                                        +table-row("19dh111126","Dương Quốc Anh","CT01","Nam","27/03/2001","123456789","03")
-                                        +table-row("19dh111136","Nguyễn Anh Khoa","CT01","Nam","27/03/2001","123456789","03")
-                                        +table-row("19dh111146","Nguyễn Đăng Khoa","CT01","Nam","27/03/2001","123456789","03")
+                                        each user in users                                               
+                                            +table-row(user.id, user.user_name, user.user_machucvu, user.user_gioitinh, user.user_ngaysinh,  user.user_sobhxh, user.user_songaynghi)
+                                                
+                                                      
+                                                
+                                            
                         
                     
 
-                button.btn.btn-primary(type='button', onclick='location.assign("/create")') Thêm nhân viên mới
+                button.btn.btn-primary(onclick='location.assign("/personnel/create")') Thêm nhân viên mới
                     
                 
             .col

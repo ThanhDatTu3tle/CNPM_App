@@ -3,6 +3,7 @@ const pug = require('pug');
 const bodyParser = require('body-parser');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
+// const shortid = require('shortid');
 
 const app = express();
 const adapter = new FileSync('database.json');
@@ -23,7 +24,9 @@ app.use(express.static('public'));
 
 // localhost:2703/
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+
+    });
 });
 
 // localhost:2703/salaryCoefficient
@@ -37,17 +40,17 @@ app.get('/position', (req, res) => {
 });
 
 // localhost:2703/list
-app.get('/list', (req, res) => {
+app.get('/personnel', (req, res) => {
     res.render('personnel/list', {
         users: database.get('users').value()
     });
 });
 
 // localhost:2703/list/search
-app.get('/list/search', (req, res) => {
+app.get('/personnel/search', (req, res) => {
     var q = req.query.q;
     var matchedUser = database.get('users').value().filter((user) => {
-        return user.user_id.indexOf(q) !== -1;
+        return user.user_machucvu.toLowerCase().indexOf(q.toLowerCase()) !== -1;
     });
 
     res.render('personnel/list', {
@@ -57,13 +60,26 @@ app.get('/list/search', (req, res) => {
 });
 
 // localhost:2703/create
-app.get('/create', (req, res) => {
+app.get('/personnel/create', (req, res) => {
     res.render('personnel/create');
 });
 
-app.post('/create', (req, res) => {
+app.get('/personnel/:id', (req ,res) => {
+    var id = parseInt(req.params.id);
+    
+
+    var user = database.get('users').find({ id: id }).value();
+
+    res.render('personnel/view', {
+        user: user
+    });
+});
+
+app.post('/personnel/create', (req, res) => {
+    // req.body.user_id = shortid.generate();
+
     database.get('users').push(req.body).write();
-    res.redirect('/list');
+    res.redirect('/personnel');
 });
 
 // localhost:2703/commonHouse
