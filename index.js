@@ -76,8 +76,13 @@ app.get('/personnel/:id', (req ,res) => {
 });
 
 app.post('/personnel/create', (req, res) => {
-    // req.body.user_id = shortid.generate();
+   
+    database.get('users').push(req.body).write();
+    res.redirect('/personnel');
+});
 
+app.post('/personnel/view', (req, res) => {
+    
     database.get('users').push(req.body).write();
     res.redirect('/personnel');
 });

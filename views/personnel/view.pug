@@ -1,13 +1,85 @@
 extends ../layouts/common
 block content 
+    .container-sm
+        .row
+            .col
+                | 
+            .col-8
+                form(action="/personnel/view", method="POST")
+                    h1 Chi tiết nhân viên 
 
-    h1 View User
+                    .row
+                        .col-8 
+                            .input-group.input-group-sm.mb-2
+                                span#inputGroup-sizing-sm.input-group-text Mã nhân viên
+                                input.form-control(type='text', placeholder=user.id, name='id', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                            .input-group.input-group-sm.mb-2
+                                span#inputGroup-sizing-sm.input-group-text Họ và tên
+                                input.form-control(type='text', placeholder=user.user_name, name='user_name', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                            .input-group.input-group-sm.mb-2
+                                span#inputGroup-sizing-sm.input-group-text Nơi sinh
+                                input.form-control(type='text', placeholder=user.user_noisinh, name='user_noisinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                            .input-group.input-group-sm.mb-2
+                                span#inputGroup-sizing-sm.input-group-text Nguyên quán
+                                input.form-control(type='text', placeholder=user.user_nguyenquan, name='user_nguyenquan', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                            .input-group.input-group-sm.mb-2
+                                span#inputGroup-sizing-sm.input-group-text Hộ khẩu thường trú
+                                input.form-control(type='text', placeholder=user.user_hokhauthuongtru, name='user_hokhauthuongtru', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                            .input-group.input-group-sm.mb-2
+                                span#inputGroup-sizing-sm.input-group-text Hộ khẩu tạm trú
+                                input.form-control(type='text', placeholder=user.user_hokhautamtru, name='user_hokhautamtru', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                        .col-4
+                            img.rounded.mx-auto.d-block(src='/images/add_photo.jpg', alt='...')
+                            span &nbsp 
+                    .input-group.input-group-sm.mb-2
+                        span#inputGroup-sizing-sm.input-group-text Ngày sinh
+                        input.form-control(type='text', placeholder=user.user_ngaysinh, name='user_ngaysinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
 
-    p
-        b Name
-        p= user.user_name
-        p= user.user_machucvu
-        p= user.user_gioitinh
-        p= user.user_ngaysinh
-        p= user.user_sobhxh
-        p= user.user_songaynghi
+                        span#inputGroup-sizing-sm.input-group-text Giới tính
+                        input.form-control(type='text', placeholder=user.user_gioitinh, name='user_gioitinh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                        span#inputGroup-sizing-sm.input-group-text Số thẻ Bảo hiểm xã hội
+                        input.form-control(type='text', placeholder=user.user_sobhxh, name='user_sobhxh', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                    .input-group.input-group-sm.mb-2
+                        span#inputGroup-sizing-sm.input-group-text Chứng vụ hiện tại
+                        input.form-control(type='text', placeholder=user.user_chucvuhientai, name='user_chucvuhientai', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                        span#inputGroup-sizing-sm.input-group-text Nơi công tác
+                        input.form-control(type='text', placeholder=user.user_noicongtac, name='user_noicongtac', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                    .input-group.input-group-sm.mb-2
+                        span#inputGroup-sizing-sm.input-group-text Số Căn cước công dân
+                        input.form-control(type='text', placeholder=user.user_cccd, name='user_cccd', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                        span#inputGroup-sizing-sm.input-group-text Ngày cấp
+                        input.form-control(type='text', placeholder=user.user_ngaycapcccd, name='user_ngaycapcccd', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                        span#inputGroup-sizing-sm.input-group-text Nơi cấp
+                        input.form-control(type='text', placeholder=user.user_noicapcccd, name='user_noicapcccd', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                    .input-group.input-group-sm.mb-2
+                        span#inputGroup-sizing-sm.input-group-text Quốc tịch
+                        input.form-control(type='text', placeholder=user.user_quoctich, name='user_quoctich', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+                    .input-group.input-group-sm.mb-2
+                        span#inputGroup-sizing-sm.input-group-text Nhà ở tập thể
+                        input.form-control(type='text', placeholder=user.user_nhaotapthe, name='user_nhaotapthe', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                    .input-group.input-group-sm.mb-2
+                        span#inputGroup-sizing-sm.input-group-text Ngày vào Đoàn
+                        input.form-control(type='text', placeholder=user.user_ngayvaodoan, name='user_ngayvaodoan', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                        span#inputGroup-sizing-sm.input-group-text Ngày vào Đảng
+                        input.form-control(type='text', placeholder=user.user_ngayvaodang, name='user_ngayvaodang', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                    .input-group.input-group-sm.mb-2
+                        span#inputGroup-sizing-sm.input-group-text Trình độ học vấn
+                        input.form-control(type='text', placeholder=user.user_trinhdohocvan, name='user_trinhdohocvan', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+                        span#inputGroup-sizing-sm.input-group-text Trình độ chuyên môn
+                        input.form-control(type='text', placeholder=user.user_trinhdochuyenmon, name='user_trinhdochuyenmon', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm')
+
+        
+                    button.btn.btn-primary Xác nhận chỉnh sửa
+            .col
+    
